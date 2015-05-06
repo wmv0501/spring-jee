@@ -1,2 +1,5 @@
 .idea
+.settings
 parent-app.iml
+target
+*.iml
