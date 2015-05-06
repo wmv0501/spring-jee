@@ -14,6 +14,7 @@
         <module>apache-camel</module>
         <module>spring-amq-jms-showcase</module>
         <module>apache-camel-activemq-showcase</module>
+        <module>spring-integration</module>
     </modules>
 
     <properties>
