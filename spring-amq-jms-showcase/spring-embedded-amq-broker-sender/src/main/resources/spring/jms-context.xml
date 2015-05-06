@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:amq="http://activemq.apache.org/schema/core"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+            http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd">
+
+
+    <amq:connectionFactory id="jmsFactory" brokerURL="tcp://localhost:61617"/>
+
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="jmsFactory" />
+    </bean>
+
+
+    <bean id="defaultDestination" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="Send2Recv" />
+    </bean>
+
+    <bean id="dest1" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg index="0" value="Send2Recv" />
+    </bean>
+    <!--  ActiveMQ destinations to use  -->
+
+
+    <bean id="jmsMessageSender" class="com.wmv.poc.jms.JmsMessageSender">
+        <property name="jmsTemplate" ref="jmsTemplate1"/>
+    </bean>
+
+
+    <!-- JmsTemplate Definition -->
+    <bean id="jmsTemplate1" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="jmsFactory" />
+        <property name="defaultDestination" >
+            <amq:queue physicalName="poc.dest_01"/>
+        </property>
+    </bean>
+</beans>
