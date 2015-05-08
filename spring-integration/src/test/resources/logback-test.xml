@@ -7,15 +7,15 @@
     </appender>  
     
     <logger name="org.springbyexample.integration" additivity="false">
-        <level value="DEBUG" />
+        <level value="ERROR" />
         
         <appender-ref ref="CONSOLE" />
     </logger>
     
     <root>
-        <level value="WARN" />
+        <level value="DEBUG" />
           
         <appender-ref ref="CONSOLE" />  
-    </root> 
+    </root>
     
 </configuration>
