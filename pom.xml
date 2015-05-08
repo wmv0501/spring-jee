@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wmv.poc</groupId>
@@ -11,10 +11,11 @@
     <modules>
         <module>spring-web</module>
         <module>spring-data-jpa</module>
-        <module>apache-camel</module>
         <module>spring-amq-jms-showcase</module>
-        <module>apache-camel-activemq-showcase</module>
         <module>spring-integration</module>
+        <module>spring-rest</module>
+        <module>apache-camel</module>
+        <module>apache-camel-activemq-showcase</module>
         <module>logback-logger</module>
     </modules>
 
@@ -36,6 +37,10 @@
         <!--Apache Camel-->
         <apache.camel.version>2.15.1</apache.camel.version>
         <apache.activemq.version>5.10.0</apache.activemq.version>
+
+        <orika.mapper.version>1.4.2</orika.mapper.version>
+        <dozer.mapper.version>5.5.1</dozer.mapper.version>
+        <jackson.databind.version>2.5.3</jackson.databind.version>
 
     </properties>
     <dependencyManagement>
@@ -269,12 +274,12 @@
                 <artifactId>junit</artifactId>
                 <version>4.11</version>
                 <scope>test</scope>
-               <!-- <exclusions>
-                    <exclusion>
-                        <artifactId>hamcrest-core</artifactId>
-                        <groupId>org.hamcrest</groupId>
-                    </exclusion>
-                </exclusions>-->
+                <!-- <exclusions>
+                     <exclusion>
+                         <artifactId>hamcrest-core</artifactId>
+                         <groupId>org.hamcrest</groupId>
+                     </exclusion>
+                 </exclusions>-->
             </dependency>
 
 
@@ -339,12 +344,42 @@
                 <version>${apache.activemq.version}</version>
             </dependency>
 
+
+            <!-- Jackson JSON Processor -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.databind.version}</version>
+            </dependency>
+            <!-- Dozer Mapper-->
+            <dependency>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer</artifactId>
+                <version>${dozer.mapper.version}</version>
+            </dependency>
+
+            <!-- Orika Mapper -->
+            <dependency>
+                <groupId>ma.glasnost.orika</groupId>
+                <artifactId>orika-core</artifactId>
+                <version>${orika.mapper.version}</version>
+                <!-- or latest version -->
+            </dependency>
+
+            <dependency>
+                <groupId>com.thoughtworks.paranamer</groupId>
+                <artifactId>paranamer</artifactId>
+                <version>2.7</version>
+            </dependency>
+
+
             <!--Others-->
             <dependency>
                 <groupId>org.apache.xbean</groupId>
                 <artifactId>xbean-spring</artifactId>
                 <version>3.16</version>
             </dependency>
+
 
         </dependencies>
     </dependencyManagement>
