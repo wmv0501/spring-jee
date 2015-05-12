@@ -15,9 +15,12 @@
  */
 package com.wmv.poc.jpa.entity;
 
-import javax.persistence.*;
-
 import org.springframework.data.jpa.domain.AbstractPersistable;
+
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 
 /**
  * Sample user class.
@@ -26,15 +29,14 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  * @author Thomas Darimont
  */
 @Entity
-@NamedQuery(name = "User.findByTheUsersNameWmv", query = "from User u where u.username = ?1")
-public class User extends AbstractPersistable<Long> {
+@NamedQuery(name = "Admin.findByTheUsersNameWmv", query = "from User u where u.username = ?1")
+public class Admin extends AbstractPersistable<Long> {
 
 	private static final long serialVersionUID = -2952735933715107252L;
 
 	@Column(unique = true) private String username;
 
-	private String firstname;
-	private String lastname;
+
 
 	@Embedded
 	private BloodType bloodType;
@@ -47,14 +49,14 @@ public class User extends AbstractPersistable<Long> {
 		this.bloodType = bloodType;
 	}
 
-	public User() {
+	public Admin() {
 		this(null);
 	}
 
 	/**
 	 * Creates a new user instance.
 	 */
-	public User(Long id) {
+	public Admin(Long id) {
 		this.setId(id);
 	}
 
@@ -75,32 +77,6 @@ public class User extends AbstractPersistable<Long> {
 		this.username = username;
 	}
 
-	/**
-	 * @return the firstname
-	 */
-	public String getFirstname() {
-		return firstname;
-	}
 
-	/**
-	 * @param firstname the firstname to set
-	 */
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	/**
-	 * @return the lastname
-	 */
-	public String getLastname() {
-		return lastname;
-	}
-
-	/**
-	 * @param lastname the lastname to set
-	 */
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
 
 }

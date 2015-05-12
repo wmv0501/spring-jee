@@ -19,6 +19,8 @@ import javax.persistence.*;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import java.util.List;
+
 /**
  * Sample user class.
  * 
@@ -38,6 +40,11 @@ public class User extends AbstractPersistable<Long> {
 
 	@Embedded
 	private BloodType bloodType;
+
+
+	@OneToMany(mappedBy = "user",cascade = {CascadeType.ALL})
+//	@JoinColumn(name = "USER_ID")
+	private List<Phonenumber> phonenumber;
 
 	public BloodType getBloodType() {
 		return bloodType;
@@ -103,4 +110,13 @@ public class User extends AbstractPersistable<Long> {
 		this.lastname = lastname;
 	}
 
+	public List<Phonenumber> getPhonenumber() {
+		return phonenumber;
+	}
+
+	public void setPhonenumber(List<Phonenumber> phonenumber) {
+		this.phonenumber = phonenumber;
+	}
 }
+
+
