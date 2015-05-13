@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -35,15 +36,12 @@ import static org.hamcrest.Matchers.notNullValue;
         DirtiesContextTestExecutionListener.class,
         TransactionalTestExecutionListener.class })
 @Transactional
-public class SpringDataIntegrationTest {
+public class HibernateSessionFactoryTest {
 
-    Logger log = LoggerFactory.getLogger(SpringDataIntegrationTest.class);
+    Logger log = LoggerFactory.getLogger(HibernateSessionFactoryTest.class);
 
     @Autowired
     private SimpleUserRepository simpleUserRepository;
-
-    @Autowired
-    private SimplePhonenumberRepository phonenumberRepository;
 
     @Autowired
     private UserDao userDao;
@@ -55,56 +53,20 @@ public class SpringDataIntegrationTest {
         user.setUsername("TestUsername1");
         user.setLastname("Lastname_test1");
         user.setPhonenumber(ImmutableList.of(new Phonenumber("12344"), new Phonenumber("12355")));
-        simpleUserRepository.save(user);
-    }
-    @Test
-    public void TestFindByFirstname() {
-        User user = simpleUserRepository.findOne(1L);
-        assertThat(user.getFirstname(), equalTo("adminFamily"));
+        userDao.saveOrUpdate(user);
     }
 
     @Test
-    public void testCreateUserWithPhone(){
-        User user = new User();
-        user.setFirstname("Firstname_test1");
-        user.setUsername("Username_test1");
-        user.setLastname("Lastname_test1");
-        user.setPhonenumber(ImmutableList.of(new Phonenumber("12344"), new Phonenumber("12355")));
-        simpleUserRepository.save(user);
-        assertThat(user.getFirstname(), equalTo("Firstname_test1"));
-
-    }
-
-    @Test
-    public void testCreatePhoneWithUser(){
-        Phonenumber phonenumber = new Phonenumber("1111");
-        User user = new User();
-        user.setFirstname("1Firstname_test1");
-        user.setUsername("1Username_test1");
-        user.setLastname("1Lastname_test1");
-
-        phonenumber.setUser(user);
-
-        phonenumberRepository.save(phonenumber);
-        assertThat(user.getFirstname(), equalTo("1Firstname_test1"));
-
-    }
-
-    @Test
-    public void testUserDaoUsingEm(){
-        User user = userDao.findUserByUsername("TestUsername1");
+    public void testUserDaoUsingSessionFactory(){
+        User user = userDao.findUserByUsernameSession("TestUsername1");
         assertThat(user, notNullValue());
 
     }
 
     @Test
-    public void testUserDao(){
-        User user = userDao.find(1l);
+    public void testUserDaoUsingSessionxFactory(){
+        User user = userDao.findUserByUsernameSession("TestUsername1");
         assertThat(user, notNullValue());
 
     }
-
-
-
-
 }

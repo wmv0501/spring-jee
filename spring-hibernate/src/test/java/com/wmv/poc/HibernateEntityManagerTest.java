@@ -30,14 +30,14 @@ import static org.hamcrest.Matchers.notNullValue;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/application-context.xml"})
-//@ContextConfiguration(classes = PersistenceContext.class)
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class,
         DirtiesContextTestExecutionListener.class,
         TransactionalTestExecutionListener.class })
-@Transactional
-public class SpringDataIntegrationTest {
 
-    Logger log = LoggerFactory.getLogger(SpringDataIntegrationTest.class);
+@Transactional
+public class HibernateEntityManagerTest {
+
+    Logger log = LoggerFactory.getLogger(HibernateEntityManagerTest.class);
 
     @Autowired
     private SimpleUserRepository simpleUserRepository;
@@ -57,54 +57,14 @@ public class SpringDataIntegrationTest {
         user.setPhonenumber(ImmutableList.of(new Phonenumber("12344"), new Phonenumber("12355")));
         simpleUserRepository.save(user);
     }
-    @Test
-    public void TestFindByFirstname() {
-        User user = simpleUserRepository.findOne(1L);
-        assertThat(user.getFirstname(), equalTo("adminFamily"));
-    }
 
-    @Test
-    public void testCreateUserWithPhone(){
-        User user = new User();
-        user.setFirstname("Firstname_test1");
-        user.setUsername("Username_test1");
-        user.setLastname("Lastname_test1");
-        user.setPhonenumber(ImmutableList.of(new Phonenumber("12344"), new Phonenumber("12355")));
-        simpleUserRepository.save(user);
-        assertThat(user.getFirstname(), equalTo("Firstname_test1"));
-
-    }
-
-    @Test
-    public void testCreatePhoneWithUser(){
-        Phonenumber phonenumber = new Phonenumber("1111");
-        User user = new User();
-        user.setFirstname("1Firstname_test1");
-        user.setUsername("1Username_test1");
-        user.setLastname("1Lastname_test1");
-
-        phonenumber.setUser(user);
-
-        phonenumberRepository.save(phonenumber);
-        assertThat(user.getFirstname(), equalTo("1Firstname_test1"));
-
-    }
 
     @Test
     public void testUserDaoUsingEm(){
-        User user = userDao.findUserByUsername("TestUsername1");
+        User user = userDao.findUserByUsernameEm("TestUsername1");
         assertThat(user, notNullValue());
 
     }
-
-    @Test
-    public void testUserDao(){
-        User user = userDao.find(1l);
-        assertThat(user, notNullValue());
-
-    }
-
-
 
 
 }

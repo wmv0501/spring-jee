@@ -11,27 +11,23 @@
     <!-- Root Context: defines shared resources visible to all other web components -->
 
 
-
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location">
-            <value>/datasource.properties</value>
+            <value>classpath:datasource.properties</value>
         </property>
     </bean>
 
 
     <!-- For spring data -->
     <jpa:repositories base-package="com.wmv.poc.jpa.repository"/>
+
     <!-- Auto scanning of components-->
     <context:component-scan base-package="com.wmv.poc"/>
 
-    <context:annotation-config />
 
-
-
-    <!--Spring transaction manager-->
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
     <bean class="org.springframework.orm.hibernate4.HibernateExceptionTranslator"/>
-    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
+    <bean id="transactionManager1" class="org.springframework.orm.jpa.JpaTransactionManager"
           p:entityManagerFactory-ref="entityManagerFactory"/>
 
 
@@ -52,4 +48,27 @@
     </bean>
 
 
+
+    <!-- Querying Using session factory -->
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+        <property name="packagesToScan" value="com.wmv.poc.jpa" />
+
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
 </beans>

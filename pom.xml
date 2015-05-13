@@ -12,6 +12,7 @@
         <module>spring-web</module>
         <module>spring-data-jpa</module>
         <module>spring-data-jpa-mysql</module>
+        <module>spring-hibernate</module>
         <module>spring-amq-jms-showcase</module>
         <module>spring-integration</module>
         <module>spring-rest</module>
