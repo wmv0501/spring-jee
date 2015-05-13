@@ -19,6 +19,7 @@
         <module>apache-camel</module>
         <module>apache-camel-activemq-showcase</module>
         <module>logback-logger</module>
+<module>spring-spring-bean-scope</module>
     </modules>
 
     <properties>
