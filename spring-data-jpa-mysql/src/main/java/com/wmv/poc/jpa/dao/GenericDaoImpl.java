@@ -61,7 +61,7 @@ public abstract class GenericDaoImpl<E, K extends Serializable>
 
     @Override
     public E find(K key) {
-        return (E) getEm().find(daoType, key);
+        return getEm().find(daoType, key);
     }
 
     @Override
@@ -70,7 +70,7 @@ public abstract class GenericDaoImpl<E, K extends Serializable>
         CriteriaQuery<E> criteriaQuery = criteriaBuilder.createQuery(daoType);
         final Root stateRoot = criteriaQuery.from(daoType);
         TypedQuery<E> query = getEm().createQuery(criteriaQuery.select(stateRoot));
-        return (List<E>)query.getResultList();
+        return query.getResultList();
 
     }
 }

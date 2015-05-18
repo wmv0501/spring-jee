@@ -19,7 +19,9 @@
         <module>apache-camel</module>
         <module>apache-camel-activemq-showcase</module>
         <module>logback-logger</module>
-<module>spring-spring-bean-scope</module>
+        <module>spring-spring-bean-scope</module>
+        <module>spring-mvc-java-config-swagger</module>
+
     </modules>
 
     <properties>
@@ -44,6 +46,9 @@
         <orika.mapper.version>1.4.2</orika.mapper.version>
         <dozer.mapper.version>5.5.1</dozer.mapper.version>
         <jackson.databind.version>2.5.3</jackson.databind.version>
+        <!-- swagger -->
+        <swagger.springmv.ui.version>0.1</swagger.springmv.ui.version>
+        <swagger.springmvc.version>0.8.8</swagger.springmvc.version>
 
     </properties>
     <dependencyManagement>
