@@ -1,8 +1,6 @@
 package com.wmv.poc.routes;
 
-import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.mock.MockEndpoint;
 
 /**
  * Created by wvergara on 5/5/15.

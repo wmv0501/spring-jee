@@ -21,6 +21,7 @@
         <module>logback-logger</module>
         <module>spring-spring-bean-scope</module>
         <module>spring-mvc-java-config-swagger</module>
+        <module>gator-integration</module>
 
     </modules>
 
