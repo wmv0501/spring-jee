@@ -1,0 +1,28 @@
+<configuration>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{MMM dd yyyy HH:mm:ss,SSS} %-5p %c - %msg%n</Pattern>
+        </layout>  
+    </appender>
+
+    <logger name="com.wmv.poc.logback.LoggerDemoTest" additivity="false">
+        <level value="TRACE" />
+        <appender-ref ref="CONSOLE" />
+    </logger>
+    <logger name="com.wmv.poc.logback.DebugLoggerLevel" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="CONSOLE" />
+    </logger>
+    <logger name="com.wmv.poc.logback.OffLoggerLevel" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="CONSOLE" />
+    </logger>
+
+    <root>
+        <level value="DEBUG" />
+          
+        <appender-ref ref="CONSOLE" />  
+    </root>
+    
+</configuration>
