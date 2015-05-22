@@ -1,4 +1,4 @@
-package com.wmv.poc.routes;
+package com.wmv.poc.gator.integration.camel.routes;
 
 import org.apache.camel.builder.RouteBuilder;
 

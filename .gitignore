@@ -3,3 +3,4 @@
 parent-app.iml
 target
 *.iml
+*.camelLock

@@ -17,6 +17,7 @@
     <amq:connectionFactory id="jmsFactory" brokerURL="tcp://localhost:61617"/>
 
     <jms:listener-container connection-factory="jmsFactory">
+
         <jms:listener destination="poc.dest_01" ref="messageListenerExample"/>
         <jms:listener destination="poc.dest_02" ref="messageListener"/>
     </jms:listener-container>
