@@ -5,6 +5,7 @@ import com.mangofactory.swagger.plugin.SwaggerSpringMvcPlugin;
 import com.wordnik.swagger.model.ApiInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ActiveProfiles;
 
@@ -14,6 +15,7 @@ import org.springframework.test.context.ActiveProfiles;
  */
 @ActiveProfiles("swagger")
 @Configuration
+@ComponentScan("om.mangofactory.swagger.configuration")
 public class SwaggerConfig {
 
     private SpringSwaggerConfig springSwaggerConfig;

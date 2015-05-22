@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author wvergara, created on 5/18/15
  */
-@ComponentScan(basePackages = { "com.wmv.poc.gator.integration.camel.routes"})
+@ComponentScan(basePackages = {"com.wmv.poc.gator.integration.camel.routes"})
 public class CamelConfig extends CamelConfiguration {
 
 
@@ -26,7 +26,7 @@ public class CamelConfig extends CamelConfiguration {
 
     @Autowired
     private OrderJmsRouteBuilder jmsRouteBuilder;
-    
+
     @Bean
     public MyFileRouteBuilder myFileRouteBuilderBean() {
         MyFileRouteBuilder myFileRouteBuilder = new MyFileRouteBuilder();
@@ -40,45 +40,6 @@ public class CamelConfig extends CamelConfiguration {
     public List<RouteBuilder> routes() {
         return (List) ImmutableList.of(fileCsvRouteBuilder, jmsRouteBuilder);
     }
-
-   /* public ActiveMQConnectionFactory jmsConnectionFactory(){
-        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
-        connectionFactory.setBrokerURL("tcp://localhost:61617");
-        return connectionFactory;
-    }
-
-    @Bean
-    public PooledConnectionFactory pooledConnectionFactory(){
-        PooledConnectionFactory pooledConnectionFactory = new PooledConnectionFactory();
-        pooledConnectionFactory.setMaxConnections(8);
-        pooledConnectionFactory.setConnectionFactory(jmsConnectionFactory());
-
-        return pooledConnectionFactory;
-    }
-
-    @Bean
-    public JmsConfiguration jmsConfig(){
-        JmsConfiguration jmsConfiguration = new JmsConfiguration(pooledConnectionFactory());
-        jmsConfiguration.setConcurrentConsumers(10);
-        return jmsConfiguration;
-    }
-    @Bean
-    public ActiveMQComponent activemq(){
-        ActiveMQComponent activeMQComponent = new ActiveMQComponent();
-        activeMQComponent.setConfiguration(jmsConfig());
-        return activeMQComponent;
-    }*/
-//    @Bean
-//    public JmsTemplate jmsTemplate(ConnectionFactory connectionFactory){
-//        JmsTemplate jmsTemplate = new JmsTemplate(connectionFactory);
-//        return  jmsTemplate;
-//    }
-
-//    @Bean
-//    public MessageConverter messageConverter(){
-//        return new MappingJacksonMessageConverter();
-//    }
-//
 
 
 }

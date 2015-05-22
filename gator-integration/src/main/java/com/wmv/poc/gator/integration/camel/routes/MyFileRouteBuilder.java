@@ -4,7 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Created by wvergara on 5/1/15.
+ * POC
+ * @author wvergara, created on 5/22/15
  */
 public class MyFileRouteBuilder extends SimpleFileRouteBuilder {
     Logger log = LoggerFactory.getLogger(MyFileRouteBuilder.class);

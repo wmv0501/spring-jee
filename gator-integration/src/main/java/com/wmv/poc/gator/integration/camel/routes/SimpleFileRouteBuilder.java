@@ -9,9 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Created by wvergara on 5/4/15.
+ * 
+ * @author wvergara, created on 5/22/15
  */
-
 public abstract class SimpleFileRouteBuilder extends RouteBuilder {
     private static final Logger log = LoggerFactory.getLogger(SimpleFileRouteBuilder.class);
 

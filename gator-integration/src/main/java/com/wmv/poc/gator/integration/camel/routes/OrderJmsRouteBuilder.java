@@ -36,7 +36,7 @@ public class OrderJmsRouteBuilder extends AbstractJmsRouteBuilder<Order> {
     }
 
     @Override
-    String getDestinationName() {
+    protected String getDestinationName() {
         return DEFAULT_DESTINATION;
     }
 }

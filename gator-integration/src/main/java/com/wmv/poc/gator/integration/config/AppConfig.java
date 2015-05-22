@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@ComponentScan(basePackages = { "com.wmv.poc.gator.integration","com.wmv.poc.gator.integration.camel.routes" ,"om.mangofactory.swagger.configuration"})
 @EnableSwagger
-@Import({CamelConfig.class, SwaggerConfig.class})
+@ComponentScan(basePackages = { "com.wmv.poc.gator.integration"})
+@Import({CamelConfig.class, SwaggerConfig.class, JmsConfiguration.class})
 class AppConfig {
 }

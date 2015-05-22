@@ -15,14 +15,10 @@ public abstract class AbstractJmsRouteBuilder<T> extends RouteBuilder {
     @Autowired
     private JmsTemplate template;
 
-    protected void send(Object objectMessage){
-        log.info("sending to jms destination" + getDestinationName()
-        );
-        template.convertAndSend( objectMessage);
+    protected void send(Object objectMessage) {
+        log.info("Sending JMS message to:{}", getDestinationName());
+        template.convertAndSend(getDestinationName(), objectMessage);
     }
-
-
-
-    abstract String getDestinationName();
+    abstract protected String getDestinationName();
 
 }
