@@ -1,5 +1,6 @@
 package com.wmv.poc.gator.integration.camel.routes;
 
+import com.wmv.poc.gator.integration.camel.processor.FileProcessor;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.RouteDefinition;

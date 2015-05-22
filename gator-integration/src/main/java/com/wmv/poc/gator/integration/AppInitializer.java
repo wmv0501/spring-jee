@@ -1,4 +1,4 @@
-package com.wmv.poc.gator.integration.Initializer;
+package com.wmv.poc.gator.integration;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
@@ -20,10 +20,6 @@ public class AppInitializer implements WebApplicationInitializer {
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
-        System.out.println("Initializing *****");
-        System.out.println("Initializing *****");
-        System.out.println("Initializing *****");
-        System.out.println("Initializing *****");
 
         WebApplicationContext context = getContext();
         servletContext.addListener(new ContextLoaderListener(context));

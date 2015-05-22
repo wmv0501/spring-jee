@@ -1,4 +1,4 @@
-package com.wmv.poc.gator.integration.camel.routes;
+package com.wmv.poc.gator.integration.camel.processor;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;

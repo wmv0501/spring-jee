@@ -1,4 +1,4 @@
-package com.wmv.poc.gator.integration.camel.routes;
+package com.wmv.poc.gator.integration.camel.processor;
 
 import com.wmv.poc.gator.integration.model.dto.Order;
 import org.apache.camel.Exchange;
@@ -21,9 +21,11 @@ public class CsvFileProcessor implements Processor {
     public void process(Exchange exchange) throws Exception {
 
         Message in = exchange.getIn();
-        List<Map<String, Object>> modelMap = (List<Map<String, Object>>) in.getBody();
-        Order order = (Order) modelMap.get(0).get(Order.class.getCanonicalName());
-        log.debug(order.getFirstname());
+        Map<String, Object> objectMap =(Map<String, Object>) in.getBody();
+        Order order = (Order) objectMap.get(Order.class.getCanonicalName());
+
+        // TODO: Code here
+        // Transformation / Mapping etc.
 
         exchange.getOut().setBody(order);
 

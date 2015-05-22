@@ -2,21 +2,14 @@ package com.wmv.poc.gator.integration.config;
 
 import com.google.common.collect.ImmutableList;
 import com.wmv.poc.gator.integration.camel.routes.FileCsvRouteBuilder;
-import com.wmv.poc.gator.integration.camel.routes.OrderJmsRouteBuilder;
 import com.wmv.poc.gator.integration.camel.routes.MyFileRouteBuilder;
-import org.apache.activemq.ActiveMQConnectionFactory;
-import org.apache.activemq.camel.component.ActiveMQComponent;
-import org.apache.activemq.jms.pool.PooledConnectionFactory;
+import com.wmv.poc.gator.integration.camel.routes.OrderJmsRouteBuilder;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.jms.JmsConfiguration;
 import org.apache.camel.spring.javaconfig.CamelConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.jms.core.JmsTemplate;
 
-import javax.inject.Singleton;
-import javax.jms.Destination;
 import java.util.List;
 
 /**
@@ -48,8 +41,7 @@ public class CamelConfig extends CamelConfiguration {
         return (List) ImmutableList.of(fileCsvRouteBuilder, jmsRouteBuilder);
     }
 
-    @Bean
-    public ActiveMQConnectionFactory jmsConnectionFactory(){
+   /* public ActiveMQConnectionFactory jmsConnectionFactory(){
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
         connectionFactory.setBrokerURL("tcp://localhost:61617");
         return connectionFactory;
@@ -75,16 +67,18 @@ public class CamelConfig extends CamelConfiguration {
         ActiveMQComponent activeMQComponent = new ActiveMQComponent();
         activeMQComponent.setConfiguration(jmsConfig());
         return activeMQComponent;
-    }
-    @Bean
-    public JmsTemplate jmsTemplate(){
-        JmsTemplate jmsTemplate = new JmsTemplate(pooledConnectionFactory());
-        jmsTemplate.setDefaultDestination(new Destination() {
+    }*/
+//    @Bean
+//    public JmsTemplate jmsTemplate(ConnectionFactory connectionFactory){
+//        JmsTemplate jmsTemplate = new JmsTemplate(connectionFactory);
+//        return  jmsTemplate;
+//    }
 
-        });
-        return  jmsTemplate;
-    }
-
+//    @Bean
+//    public MessageConverter messageConverter(){
+//        return new MappingJacksonMessageConverter();
+//    }
+//
 
 
 }

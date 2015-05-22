@@ -1,8 +1,6 @@
 package com.wmv.poc.gator.integration.camel.routes;
 
-import org.apache.camel.Exchange;
-import org.apache.camel.Message;
-import org.apache.camel.Processor;
+import com.wmv.poc.gator.integration.camel.processor.CsvFileProcessor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.dataformat.bindy.csv.BindyCsvDataFormat;
 import org.apache.camel.spi.DataFormat;
@@ -15,9 +13,10 @@ import org.springframework.stereotype.Component;
  *
  * @author wvergara, created on 5/18/15
  */
-@Component( "routebuilderOne")
+@Component("routebuilderOne")
 public class FileCsvRouteBuilder extends RouteBuilder {
     private static Logger log = LoggerFactory.getLogger(FileCsvRouteBuilder.class);
+
     private DataFormat bindy = new BindyCsvDataFormat("com.wmv.poc.gator.integration.model.dto");
 
     @Override
@@ -28,5 +27,9 @@ public class FileCsvRouteBuilder extends RouteBuilder {
                 .to("direct:orderJms");
 
 
+        from("file://src/data/csv/list?noop=true")
+                .unmarshal(bindy).split(body()).log("*** BINDY LIST!")
+                .process(new CsvFileProcessor())
+                .to("direct:orderJms");
     }
 }
