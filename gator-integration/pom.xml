@@ -57,10 +57,10 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
-        <dependency>
+       <!-- <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jul-to-slf4j</artifactId>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -74,11 +74,11 @@
             <artifactId>logback-access</artifactId>
         </dependency>
 
-        <!-- @Inject -->
+    <!--    &lt;!&ndash; @Inject &ndash;&gt;
         <dependency>
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!-- JavaEE APIs -->
         <dependency>
@@ -87,16 +87,16 @@
             <version>3.0.1</version>
         </dependency>
 
-        <dependency>
+       <!-- <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
             <version>2.1</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
+        </dependency>-->
+        <!--<dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
-        </dependency>
+        </dependency>-->
 
 
         <dependency>
