@@ -6,14 +6,10 @@
         </layout>  
     </appender>
 
-    <logger name="com.wmv.poc" additivity="false">
-        <level value="DEBUG" />
-        <appender-ref ref="CONSOLE" />
-    </logger>
-
     <root>
-        <level value="ERROR" />
-        <appender-ref ref="CONSOLE" />
+        <level value="DEBUG" />
+          
+        <appender-ref ref="CONSOLE" />  
     </root>
     
 </configuration>

@@ -39,6 +39,15 @@
     <url>https://github.com/spring-projects/spring-security</url>
   </scm>
   <dependencies>
+
+     <dependency>
+      <groupId>com.wmv.poc.springsecurity</groupId>
+      <artifactId>spring-security-samples-hellomvc-jc-poc1</artifactId>
+      <version>4.0.1.RELEASE</version>
+      <scope>compile</scope>
+    </dependency>
+
+
     <dependency>
       <groupId>javax.validation</groupId>
       <artifactId>validation-api</artifactId>
@@ -250,6 +259,9 @@
         <artifactId>jetty-maven-plugin</artifactId>
         <version>9.0.6.v20130930</version>
         <configuration>
+          <webApp>
+            <contextPath>/spring-security</contextPath>
+          </webApp>
           <httpConnector>
             <port>8080</port>
             <host>localhost</host>

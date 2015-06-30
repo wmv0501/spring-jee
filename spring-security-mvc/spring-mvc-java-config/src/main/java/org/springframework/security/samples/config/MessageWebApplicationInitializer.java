@@ -3,6 +3,7 @@ package org.springframework.security.samples.config;
 import javax.servlet.Filter;
 
 import org.springframework.security.samples.mvc.config.WebMvcConfiguration;
+import org.springframework.security.samples.security.config.DaoAuthenticationSecurityConfiguration;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -11,7 +12,7 @@ public class MessageWebApplicationInitializer extends
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[] { RootConfiguration.class };
+		return new Class[] { RootConfiguration.class , DaoAuthenticationSecurityConfiguration.class};
 	}
 
 	@Override

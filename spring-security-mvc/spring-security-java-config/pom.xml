@@ -8,9 +8,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.wmv.poc.springsecurity</groupId>
-  <artifactId>spring-security-samples-hellomvc-jc</artifactId>
+  <artifactId>spring-security-samples-hellomvc-jc-poc1</artifactId>
   <version>4.0.1.RELEASE</version>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <name>spring-security-samples-hellomvc-jc</name>
   <description>spring-security-samples-hellomvc-jc</description>
   <url>http://spring.io/spring-security</url>
@@ -41,12 +41,12 @@
   <dependencies>
 
 
-    <dependency>
+   <!-- <dependency>
       <groupId>com.wmv.poc.springsecurity</groupId>
       <artifactId>spring-security-samples-messages-jc</artifactId>
       <version>4.0.1.RELEASE</version>
       <scope>compile</scope>
-    </dependency>
+    </dependency>-->
 
     <dependency>
       <groupId>com.wmv.poc.springsecurity</groupId>
@@ -65,6 +65,30 @@
       <version>1.2.1</version>
       <scope>compile</scope>
     </dependency>
+      <!-- Required for bypassing web.xml via Guice. Used in TestServlet.java -->
+      <dependency>
+          <groupId>javax.ws.rs</groupId>
+          <artifactId>jsr311-api</artifactId>
+          <version>1.1.1</version>
+      </dependency>
+
+
+      <dependency>
+          <groupId>com.sun.jersey</groupId>
+          <artifactId>jersey-client</artifactId>
+          <version>${jersey.version}</version>
+          <scope>test</scope>
+      </dependency>
+
+      <dependency>
+          <groupId>com.sun.jersey</groupId>
+          <artifactId>jersey-grizzly2</artifactId>
+          <version>${jersey.version}</version>
+          <scope>test</scope>
+      </dependency>
+
+
+
     <dependency>
       <groupId>javax.validation</groupId>
       <artifactId>validation-api</artifactId>
@@ -178,6 +202,8 @@
   </dependencyManagement>
   <properties>
     <m2eclipse.wtp.contextRoot>/sample</m2eclipse.wtp.contextRoot>
+      <jersey.version>1.17.1</jersey.version>
+
   </properties>
   <build>
     <plugins>

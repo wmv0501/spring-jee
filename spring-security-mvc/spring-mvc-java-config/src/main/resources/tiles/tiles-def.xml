@@ -14,6 +14,25 @@
 		value="head/messages/{1}"/>
   </definition>
 
+  <definition name="users/*"
+	  template="layout">
+	<put-attribute name="content"
+		value="content/users/{1}"/>
+	<put-attribute name="title"
+		value="title/users/{1}"/>
+	<put-attribute name="head"
+		value="head/users/{1}"/>
+  </definition>
+
+
+
+  <definition name="content/users/*"
+	  template="users/{1} :: content"/>
+  <definition name="title/users/*"
+	  template="users/{1} :: title"/>
+  <definition name="head/users/*"
+	  template="users/{1} :: /html/head/link"/>
+
   <definition name="content/messages/*"
 	  template="messages/{1} :: content"/>
   <definition name="title/messages/*"

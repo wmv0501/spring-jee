@@ -5,30 +5,36 @@ package org.springframework.security.samples.data;
  */
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * @author katsi02
- *
  */
 @Entity
-@Table(name="USERS")
-public class User
-{
-    @Id @GeneratedValue(strategy=GenerationType.AUTO)
+@Table(name = "USERS")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
-    @Column(nullable=false, unique=true)
+    @Column(nullable = false)
+    @NotNull(message = "Email is required")
     private String email;
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String password;
     private Date dob;
 
-    @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-    @JoinColumn(name="user_id")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
     private Set<Role> roles = new HashSet<>();
+
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private Set<Timelog> timelogs = new HashSet<>();
 
     public User() {
     }
@@ -95,4 +101,11 @@ public class User
         this.roles = roles;
     }
 
+    public Set<Timelog> getTimelogs() {
+        return timelogs;
+    }
+
+    public void setTimelogs(Set<Timelog> timelogs) {
+        this.timelogs = timelogs;
+    }
 }

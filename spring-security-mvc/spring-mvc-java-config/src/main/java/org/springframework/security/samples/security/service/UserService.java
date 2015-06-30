@@ -1,12 +1,10 @@
-package org.springframework.security.samples.service;
-
+package org.springframework.security.samples.security.service;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.samples.data.User;
-import org.springframework.security.samples.repositories.UserRepository;
+import org.springframework.security.samples.data.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 /**
  * @author wvergara, created on 6/9/15.
@@ -18,7 +16,7 @@ public class UserService
     //private UserDao userDao;
 
     @Autowired
-    private org.springframework.security.samples.data.UserRepository userRepository;
+    private UserRepository userRepository;
 
     /*
     @Autowired

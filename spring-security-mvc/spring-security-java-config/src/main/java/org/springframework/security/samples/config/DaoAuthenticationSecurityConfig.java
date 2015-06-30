@@ -11,46 +11,19 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
-import javax.sql.DataSource;
-
-@Configuration
-@ComponentScan(basePackages = "org.springframework.security.samples")
 @EnableGlobalMethodSecurity(prePostEnabled=true)
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter{
+public abstract class DaoAuthenticationSecurityConfig extends WebSecurityConfigurerAdapter{
 
+    abstract protected UserDetailsService userDetailsService();
 
-
-
-    @Autowired
-    private CustomUserDetailsService customUserDetailsService;
-
-
-   /* @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/login","/login/form**","/register","/logout").permitAll() // #4
-                .antMatchers("/admin","/admin*//**").hasRole("ADMIN") // #6
-                .anyRequest().authenticated() // 7
-                ; // #5
-    }
-*/
-   /* // @formatter:off
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
-    }*/
-    // @formatter:on
+    private UserDetailsService userDetailsService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder registry) throws Exception {
-        registry.userDetailsService(customUserDetailsService);
-
+        registry.userDetailsService(userDetailsService());
     }
 
     @Bean
@@ -59,10 +32,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         return super.authenticationManagerBean();
     }
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web
-                .ignoring()
-                .antMatchers("errors/**", "/resources/**"); // #3
-    }
+//    @Override
+//    public void configure(WebSecurity web) throws Exception {
+//        web
+//                .ignoring()
+//                .antMatchers("errors/**", "/resources/**"); // #3
+//    }
+
+
+
+     /* @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/login","/login/form**","/register","/logout").permitAll() // #4
+                .antMatchers("/admin","/admin*//**").hasRole("ADMIN") // #6
+     .anyRequest().authenticated() // 7
+     ; // #5
+     }
+     */
+
 }

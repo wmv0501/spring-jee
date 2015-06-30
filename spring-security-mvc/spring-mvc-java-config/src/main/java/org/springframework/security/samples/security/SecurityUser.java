@@ -1,4 +1,4 @@
-package org.springframework.security.samples.config;
+package org.springframework.security.samples.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,13 +13,12 @@ import java.util.Set;
 /**
  * @author wvergara, created on 6/9/15.
  */
-public class SecurityUser extends User implements UserDetails
-{
+public class SecurityUser extends User implements UserDetails {
 
     private static final long serialVersionUID = 1L;
-    public SecurityUser(org.springframework.security.samples.data.User user) {
-        if(user != null)
-        {
+
+    public SecurityUser(User user) {
+        if (user != null) {
             this.setId(user.getId());
             this.setName(user.getName());
             this.setEmail(user.getEmail());
@@ -35,8 +34,7 @@ public class SecurityUser extends User implements UserDetails
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         Set<Role> userRoles = this.getRoles();
 
-        if(userRoles != null)
-        {
+        if (userRoles != null) {
             for (Role role : userRoles) {
                 SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role.getRoleName());
                 authorities.add(authority);

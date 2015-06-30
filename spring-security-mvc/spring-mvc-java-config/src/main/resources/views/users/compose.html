@@ -1,0 +1,55 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+<head>
+    <title tiles:fragment="title">Messages : Create</title>
+</head>
+<body>
+<div tiles:fragment="content">
+    <div class="container">
+        <h1>Messages : Create</h1>
+
+        <form id="userForm"
+              th:action="@{/users}"
+              th:object="${user}"
+              action="view.html"
+              method="post">
+            <div th:if="${#fields.hasErrors('*')}"
+                 class="alert alert-error">
+                <p th:each="error : ${#fields.errors('*')}"
+                   th:text="${error}">
+                    Validation error
+                </p>
+            </div>
+            <label for="name">
+                Name
+            </label>
+            <input type="text"
+                   th:field="*{name}"
+                   th:class="${#fields.hasErrors('name')} ? 'field-error'"/>
+            <label for="email">
+                Email
+            </label>
+            <input type="text"
+                   th:field="*{email}"
+                   th:class="${#fields.hasErrors('email')} ? 'field-error'"/>
+            <label for="password">
+                Password
+            </label>
+                <input type="password" th:field="*{password}"
+                          th:class="${#fields.hasErrors('password')} ? 'field-error'">
+                </input>
+            <!--<label for="confirmPassword">
+                Password
+            </label>
+                <input type="password" th:field="*{password}"
+                          th:class="${#fields.hasErrors('password')} ? 'field-error'">
+                </input>-->
+
+
+            <div class="form-actions">
+                <input type="submit" value="Create"/>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
