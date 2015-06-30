@@ -23,6 +23,8 @@
         <module>spring-mvc-java-config-swagger</module>
         <module>gator-integration</module>
         <module>commons-model</module>
+        <module>misc</module>
+        <module>simple-freemarker</module>
 
     </modules>
 
