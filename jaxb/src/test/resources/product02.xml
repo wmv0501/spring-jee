@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+    <xs:element name="product" type="product"/>
+
+    <xs:complexType name="product">
+        <xs:sequence>
+            <xs:element ref="fields" maxOccurs="unbounded"/>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="x" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="fields" type="productField"/>
+
+    <xs:complexType name="productField">
+        <xs:sequence>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
+
