@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlValue;
  */
 public class MyMapEntryType {
     @XmlAttribute
-    public Integer key;
+    public String key;
 
     @XmlValue
     public String value;

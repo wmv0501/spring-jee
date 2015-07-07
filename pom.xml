@@ -25,6 +25,8 @@
         <module>commons-model</module>
         <module>misc</module>
         <module>simple-freemarker</module>
+        <module>jaxb</module>
+        <module>xsd-generator</module>
 
     </modules>
 

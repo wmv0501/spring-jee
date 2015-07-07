@@ -9,12 +9,12 @@ import java.util.Map;
  */
 public final class MyMapAdapter extends
 
-        XmlAdapter<MyMapType,Map<Integer, String>> {
+        XmlAdapter<MyMapType,Map<String, String>> {
 
     @Override
-    public MyMapType marshal(Map<Integer, String> arg0) throws Exception {
+    public MyMapType marshal(Map<String, String> arg0) throws Exception {
         MyMapType myMapType = new MyMapType();
-        for(Map.Entry<Integer, String> entry : arg0.entrySet()) {
+        for(Map.Entry<String, String> entry : arg0.entrySet()) {
             MyMapEntryType myMapEntryType =
                     new MyMapEntryType();
             myMapEntryType.key = entry.getKey();
@@ -25,8 +25,8 @@ public final class MyMapAdapter extends
     }
 
     @Override
-    public Map<Integer, String> unmarshal(MyMapType arg0) throws Exception {
-        HashMap<Integer, String> hashMap = new HashMap<Integer, String>();
+    public Map<String, String> unmarshal(MyMapType arg0) throws Exception {
+        HashMap<String, String> hashMap = new HashMap<String, String>();
         for(MyMapEntryType myEntryType : arg0.entry) {
             hashMap.put(myEntryType.key, myEntryType.value);
         }

@@ -1,4 +1,4 @@
-package com.wmv.poc.jpa.poc;
+package com.owens.gis.xsdgenerator.model;
 
 import org.w3c.dom.Element;
 
@@ -14,19 +14,13 @@ import java.util.List;
 
 public class ProductU {
 
-   /* @XmlElement(
-            name = "fields",
-            required = true
-    )
-    @XmlJavaTypeAdapter(MyMapAdapter.class)*/
-
-//    private Map<String, String> productField;
-
-
     @XmlAnyElement()
     public List<Element> productField = new ArrayList<Element>();
 
-    @XmlAttribute
+    @XmlElement(
+            name = "id",
+            required = true
+    )
     private String id;
 
     public String getId() {

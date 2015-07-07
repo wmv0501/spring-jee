@@ -52,7 +52,7 @@ public class UserRestController {
 
         List<ProductField> productFieldList = new ArrayList();
 
-            ProductField productField = new ProductField();
+        ProductField productField = new ProductField();
         productField.setOwensUsername("OwensUsername");
         productField.setProductId("ProductId");
         productField.setReferenceOrderId("ReferenceOrderId");
