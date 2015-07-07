@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product >
+    <id type="java.lang.Integer">123</id>
+    <name type="java.lang.String">Jane Doe</name>
+    <fields>
+        <product-id2 type="java.lang.Integer">12</product-id2>
+        <reference-order-id>ReferenceOrderId2</reference-order-id>
+        <request-reason>RequestReason2</request-reason>
+        <owens-username>OwensUsername2</owens-username>
+    </fields>
+</product>
