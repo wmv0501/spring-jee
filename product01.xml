@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+
+
+    <xs:element name="product" type="product"/>
+
+    <xs:complexType name="product">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" ref="fields"/>
+            <xs:element name="id" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="fields" type="productField"/>
+
+
+    <xs:complexType name="productField">
+        <xs:sequence>
+            <xs:element name="product-id" type="xs:string"/>
+            <xs:element name="reference-order-id" type="xs:string"/>
+            <xs:element name="request-reason" type="xs:string"/>
+            <xs:element name="owens-username" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

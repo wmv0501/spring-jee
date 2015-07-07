@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<product>
+    <id>1</id>
+    <fields>
+        <product-id>ProductId2</product-id>
+        <reference-order-id>ReferenceOrderId2</reference-order-id>
+        <request-reason>RequestReason2</request-reason>
+        <owens-username>OwensUsername2</owens-username>
+    </fields>
+</product>
