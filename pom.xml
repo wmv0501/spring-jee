@@ -27,6 +27,7 @@
         <module>simple-freemarker</module>
         <module>jaxb</module>
         <module>xsd-generator</module>
+        <module>java-mail</module>
 
     </modules>
 
