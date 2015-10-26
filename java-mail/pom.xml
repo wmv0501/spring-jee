@@ -44,7 +44,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.wmv.poc.javamail.EmailService</mainClass>
+                            <mainClass>com.wmv.poc.javamail.GisFeTransformedPayloadMailer</mainClass>
                         </manifest>
                     </archive>
 
