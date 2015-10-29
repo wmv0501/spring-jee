@@ -1,0 +1,36 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://owens.com/gator/om/caseorder/domain/dto" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://owens.com/gator/om/caseorder/domain/dto">
+    <xs:element name="owens-cases" type="owens-cases"/>
+    <xs:complexType name="owens-cases">
+        <xs:sequence>
+            <xs:element name="owens-case" type="owens-case" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="owens-case">
+        <xs:sequence>
+            <xs:element name="subject" type="subject" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="element" type="productCategory" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="subject">
+        <xs:sequence>
+            <xs:element name="name" type="group-name"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="group-name">
+        <xs:sequence>
+            <xs:element name="firstname" type="xs:string"/>
+            <xs:element name="middlename" type="xs:string"/>
+            <xs:element name="lastname" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="productCategory">
+        <xs:choice>
+        </xs:choice>
+    </xs:complexType>
+
+
+</xs:schema>

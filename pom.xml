@@ -28,6 +28,8 @@
         <module>jaxb</module>
         <module>xsd-generator</module>
         <module>java-mail</module>
+        <module>spring4-mvc-java-config</module>
+        <module>spring-mvc-jms</module>
 
     </modules>
 
